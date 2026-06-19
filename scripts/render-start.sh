@@ -60,7 +60,14 @@ from odoo import fields
 
 config = env["ir.config_parameter"].sudo()
 config.set_param("ir_attachment.location", "db")
-env["ir.attachment"].sudo().search([("url", "=like", "/web/assets/%")]).unlink()
+Attachment = env["ir.attachment"].sudo()
+Attachment.regenerate_assets_bundles()
+
+stale_attachments = Attachment
+for attachment in Attachment.search([("store_fname", "!=", False)]):
+    if attachment.store_fname and not os.path.exists(attachment._full_path(attachment.store_fname)):
+        stale_attachments |= attachment
+stale_attachments.unlink()
 
 env.ref("base.user_admin").write(
     {
