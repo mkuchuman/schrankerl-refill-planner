@@ -56,6 +56,8 @@ odoo -d "$DB_NAME" -i schrankerl_refill_planner -u schrankerl_refill_planner --s
 cat <<'PY' | odoo shell -d "$DB_NAME" "${odoo_args[@]}"
 import os
 
+from odoo import fields
+
 env.ref("base.user_admin").write(
     {
         "login": os.environ.get("ODOO_DEMO_LOGIN", "admin"),
@@ -63,6 +65,9 @@ env.ref("base.user_admin").write(
     }
 )
 env["sch.integration.run"].run_mock_sync()
+cron = env.ref("schrankerl_refill_planner.ir_cron_sch_mock_sync", raise_if_not_found=False)
+if cron:
+    cron.nextcall = fields.Datetime.add(fields.Datetime.now(), days=1)
 env.cr.commit()
 PY
 
@@ -72,4 +77,5 @@ exec odoo \
   --http-port="${PORT:-8069}" \
   --proxy-mode \
   --no-database-list \
+  --max-cron-threads=1 \
   "${odoo_args[@]}"
