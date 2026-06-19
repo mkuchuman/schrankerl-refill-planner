@@ -17,7 +17,6 @@ values = {
     "DB_USER": unquote(url.username or ""),
     "DB_PASSWORD": unquote(url.password or ""),
     "DB_NAME": os.environ.get("ODOO_DATABASE") or unquote((url.path or "/").lstrip("/")),
-    "ODOO_MASTER_PASSWORD": os.environ.get("ODOO_MASTER_PASSWORD", "odoo"),
 }
 
 for key, value in values.items():
@@ -49,7 +48,6 @@ odoo_args=(
   --db_port="$DB_PORT"
   --db_user="$DB_USER"
   --db_password="$DB_PASSWORD"
-  --admin-passwd="$ODOO_MASTER_PASSWORD"
   --addons-path="$addons_path"
 )
 

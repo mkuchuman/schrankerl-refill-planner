@@ -14,8 +14,6 @@ services:
         fromDatabase:
           name: schrankerl-demo-db
           property: database
-      - key: ODOO_MASTER_PASSWORD
-        generateValue: true
       - key: ODOO_DEMO_LOGIN
         value: admin
       - key: ODOO_DEMO_PASSWORD
