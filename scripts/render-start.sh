@@ -63,11 +63,17 @@ config.set_param("ir_attachment.location", "db")
 Attachment = env["ir.attachment"].sudo()
 Attachment.regenerate_assets_bundles()
 
-stale_attachments = Attachment
-for attachment in Attachment.search([("store_fname", "!=", False)]):
-    if attachment.store_fname and not os.path.exists(attachment._full_path(attachment.store_fname)):
-        stale_attachments |= attachment
-stale_attachments.unlink()
+env.cr.execute("SELECT id, store_fname FROM ir_attachment WHERE store_fname IS NOT NULL")
+stale_attachment_ids = [
+    attachment_id
+    for attachment_id, store_fname in env.cr.fetchall()
+    if store_fname and not os.path.exists(Attachment._full_path(store_fname))
+]
+if stale_attachment_ids:
+    Attachment.browse(stale_attachment_ids).unlink()
+Attachment.clear_caches()
+env["ir.qweb"].clear_caches()
+print(f"Render startup removed {len(stale_attachment_ids)} stale filestore attachments.")
 
 env.ref("base.user_admin").write(
     {
