@@ -81,7 +81,7 @@ Login:
 - user: `admin`
 - password: the `ODOO_DEMO_PASSWORD` value you entered in Render
 
-The startup script installs the add-on, sets the demo password, runs mock sync, and starts Odoo.
+The startup script installs the add-on, stores Odoo generated assets in Postgres for Render's ephemeral filesystem, sets the demo password, runs mock sync, and starts Odoo.
 
 Render free limits are enough for a short interview demo, but expect slow cold starts. The free Postgres database has a 30-day limit. If the demo feels too slow, upgrade only the web service from `free` to `starter`.
 

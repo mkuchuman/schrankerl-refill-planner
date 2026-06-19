@@ -58,6 +58,10 @@ import os
 
 from odoo import fields
 
+config = env["ir.config_parameter"].sudo()
+config.set_param("ir_attachment.location", "db")
+env["ir.attachment"].sudo().search([("url", "=like", "/web/assets/%")]).unlink()
+
 env.ref("base.user_admin").write(
     {
         "login": os.environ.get("ODOO_DEMO_LOGIN", "admin"),
