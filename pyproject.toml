@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "schrankerl-refill-planner"
+version = "0.1.0"
+description = "Schrankerl Odoo refill planning demo"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "black==24.10.0",
+    "flake8==7.1.1",
+    "flake8-bugbear",
+    "flake8-comprehensions",
+    "flake8-simplify",
+    "isort==5.13.2",
+    "pre-commit",
+]
+
+[tool.setuptools]
+package-dir = {"" = "addons"}
+packages = ["schrankerl_refill_planner", "schrankerl_refill_planner.models"]
+
+[tool.setuptools.package-data]
+schrankerl_refill_planner = ["data/*.xml", "demo/*.xml", "security/*.csv", "views/*.xml"]
+
+[tool.black]
+line-length = 120
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+line_length = 120
+known_first_party = ["schrankerl_refill_planner"]

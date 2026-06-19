@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_sch_sale_event_tree" model="ir.ui.view">
+        <field name="name">sch.sale.event.tree</field>
+        <field name="model">sch.sale.event</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="event_ts"/>
+                <field name="event_id"/>
+                <field name="fridge_id"/>
+                <field name="product_id"/>
+                <field name="qty"/>
+                <field name="unit_price"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sch_sale_event_form" model="ir.ui.view">
+        <field name="name">sch.sale.event.form</field>
+        <field name="model">sch.sale.event</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="event_id"/>
+                        <field name="event_ts"/>
+                        <field name="fridge_id"/>
+                        <field name="product_id"/>
+                        <field name="qty"/>
+                        <field name="unit_price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sch_sale_event" model="ir.actions.act_window">
+        <field name="name">Sales Events</field>
+        <field name="res_model">sch.sale.event</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

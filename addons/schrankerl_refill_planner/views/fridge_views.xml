@@ -1,0 +1,40 @@
+<odoo>
+    <record id="view_sch_fridge_tree" model="ir.ui.view">
+        <field name="name">sch.fridge.tree</field>
+        <field name="model">sch.fridge</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="code"/>
+                <field name="partner_id"/>
+                <field name="location_id"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sch_fridge_form" model="ir.ui.view">
+        <field name="name">sch.fridge.form</field>
+        <field name="model">sch.fridge</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                        <field name="partner_id"/>
+                        <field name="location_id"/>
+                        <field name="active"/>
+                    </group>
+                    <field name="notes"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sch_fridge" model="ir.actions.act_window">
+        <field name="name">Fridges</field>
+        <field name="res_model">sch.fridge</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

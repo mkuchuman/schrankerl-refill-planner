@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_sch_inventory_snapshot_tree" model="ir.ui.view">
+        <field name="name">sch.inventory.snapshot.tree</field>
+        <field name="model">sch.inventory.snapshot</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="snapshot_ts"/>
+                <field name="fridge_id"/>
+                <field name="product_id"/>
+                <field name="on_hand_qty"/>
+                <field name="days_to_expiry"/>
+                <field name="data_source"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sch_inventory_snapshot_form" model="ir.ui.view">
+        <field name="name">sch.inventory.snapshot.form</field>
+        <field name="model">sch.inventory.snapshot</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="snapshot_ts"/>
+                        <field name="fridge_id"/>
+                        <field name="product_id"/>
+                        <field name="on_hand_qty"/>
+                        <field name="days_to_expiry"/>
+                        <field name="data_source"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sch_inventory_snapshot" model="ir.actions.act_window">
+        <field name="name">Inventory Snapshots</field>
+        <field name="res_model">sch.inventory.snapshot</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

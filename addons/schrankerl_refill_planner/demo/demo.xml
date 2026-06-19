@@ -1,0 +1,69 @@
+<odoo>
+    <record id="partner_demo_client" model="res.partner">
+        <field name="name">Demo Client GmbH</field>
+        <field name="is_company">True</field>
+    </record>
+
+    <record id="fridge_fr001" model="sch.fridge">
+        <field name="name">Demo Office Fridge 1</field>
+        <field name="code">FR001</field>
+        <field name="partner_id" ref="partner_demo_client"/>
+    </record>
+
+    <record id="fridge_fr002" model="sch.fridge">
+        <field name="name">Demo Office Fridge 2</field>
+        <field name="code">FR002</field>
+        <field name="partner_id" ref="partner_demo_client"/>
+    </record>
+
+    <record id="product_sku001" model="product.product">
+        <field name="name">Green Chicken Curry</field>
+        <field name="default_code">SKU001</field>
+        <field name="detailed_type">product</field>
+        <field name="sch_shelf_life_days">3</field>
+        <field name="sch_max_capacity_qty">12</field>
+        <field name="sch_min_display_qty">2</field>
+    </record>
+
+    <record id="product_sku002" model="product.product">
+        <field name="name">Bio Lasagne</field>
+        <field name="default_code">SKU002</field>
+        <field name="detailed_type">product</field>
+        <field name="sch_shelf_life_days">4</field>
+        <field name="sch_max_capacity_qty">10</field>
+        <field name="sch_min_display_qty">2</field>
+    </record>
+
+    <record id="product_sku003" model="product.product">
+        <field name="name">Porridge</field>
+        <field name="default_code">SKU003</field>
+        <field name="detailed_type">product</field>
+        <field name="sch_shelf_life_days">5</field>
+        <field name="sch_max_capacity_qty">14</field>
+        <field name="sch_min_display_qty">2</field>
+    </record>
+
+    <record id="product_sku004" model="product.product">
+        <field name="name">Chicken Wrap</field>
+        <field name="default_code">SKU004</field>
+        <field name="detailed_type">product</field>
+        <field name="sch_shelf_life_days">2</field>
+        <field name="sch_max_capacity_qty">16</field>
+        <field name="sch_min_display_qty">3</field>
+    </record>
+
+    <record id="product_sku005" model="product.product">
+        <field name="name">Makava Bio Iced Tea</field>
+        <field name="default_code">SKU005</field>
+        <field name="detailed_type">product</field>
+        <field name="sch_shelf_life_days">30</field>
+        <field name="sch_max_capacity_qty">24</field>
+        <field name="sch_min_display_qty">6</field>
+    </record>
+
+    <record id="refill_plan_demo" model="sch.refill.plan">
+        <field name="name">Tomorrow refill plan</field>
+        <field name="target_date">2026-06-20</field>
+        <field name="state">draft</field>
+    </record>
+</odoo>

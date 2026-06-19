@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: schrankerl-refill-planner
+    runtime: docker
+    plan: free
+    region: frankfurt
+    healthCheckPath: /web/login
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: schrankerl-demo-db
+          property: connectionString
+      - key: ODOO_DATABASE
+        fromDatabase:
+          name: schrankerl-demo-db
+          property: database
+      - key: ODOO_MASTER_PASSWORD
+        generateValue: true
+      - key: ODOO_DEMO_LOGIN
+        value: admin
+      - key: ODOO_DEMO_PASSWORD
+        sync: false
+
+databases:
+  - name: schrankerl-demo-db
+    plan: free
+    region: frankfurt
+    postgresMajorVersion: "15"
+    databaseName: schrankerl_demo
+    user: schrankerl

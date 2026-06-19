@@ -1,0 +1,75 @@
+<odoo>
+    <record id="view_sch_refill_plan_tree" model="ir.ui.view">
+        <field name="name">sch.refill.plan.tree</field>
+        <field name="model">sch.refill.plan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="target_date"/>
+                <field name="name"/>
+                <field name="state"/>
+                <field name="generated_at"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sch_refill_plan_form" model="ir.ui.view">
+        <field name="name">sch.refill.plan.form</field>
+        <field name="model">sch.refill.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_generate" string="Generate" type="object" class="btn-primary"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="target_date"/>
+                        <field name="generated_at" readonly="1"/>
+                    </group>
+                    <field name="line_ids" readonly="1">
+                        <tree>
+                            <field name="fridge_id"/>
+                            <field name="product_id"/>
+                            <field name="forecast_qty"/>
+                            <field name="safety_stock_qty"/>
+                            <field name="usable_stock_qty"/>
+                            <field name="on_hand_qty"/>
+                            <field name="recommended_qty"/>
+                            <field name="capacity_qty"/>
+                            <field name="reason"/>
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sch_refill_plan" model="ir.actions.act_window">
+        <field name="name">Refill Plans</field>
+        <field name="res_model">sch.refill.plan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="view_sch_refill_plan_line_tree" model="ir.ui.view">
+        <field name="name">sch.refill.plan.line.tree</field>
+        <field name="model">sch.refill.plan.line</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="plan_id"/>
+                <field name="fridge_id"/>
+                <field name="product_id"/>
+                <field name="forecast_qty"/>
+                <field name="usable_stock_qty"/>
+                <field name="recommended_qty"/>
+                <field name="reason"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sch_refill_plan_line" model="ir.actions.act_window">
+        <field name="name">Refill Lines</field>
+        <field name="res_model">sch.refill.plan.line</field>
+        <field name="view_mode">tree</field>
+    </record>
+</odoo>

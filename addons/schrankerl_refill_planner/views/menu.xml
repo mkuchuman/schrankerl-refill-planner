@@ -1,0 +1,11 @@
+<odoo>
+    <menuitem id="menu_schrankerl_root" name="Schrankerl"/>
+    <menuitem id="menu_schrankerl_planning" name="Refill Planning" parent="menu_schrankerl_root" action="action_sch_refill_plan"/>
+    <menuitem id="menu_schrankerl_fridges" name="Fridges" parent="menu_schrankerl_root" action="action_sch_fridge"/>
+    <menuitem id="menu_schrankerl_sales" name="Sales Events" parent="menu_schrankerl_root" action="action_sch_sale_event"/>
+    <menuitem id="menu_schrankerl_inventory" name="Inventory Snapshots" parent="menu_schrankerl_root" action="action_sch_inventory_snapshot"/>
+    <menuitem id="menu_schrankerl_run_sync" name="Run Mock Sync Now" parent="menu_schrankerl_root" action="action_sch_run_mock_sync"/>
+    <menuitem id="menu_schrankerl_sync_runs" name="Sync Runs" parent="menu_schrankerl_root" action="action_sch_integration_run"/>
+    <menuitem id="menu_schrankerl_reports" name="Reports" parent="menu_schrankerl_root"/>
+    <menuitem id="menu_schrankerl_refill_lines" name="Refill Lines" parent="menu_schrankerl_reports" action="action_sch_refill_plan_line"/>
+</odoo>

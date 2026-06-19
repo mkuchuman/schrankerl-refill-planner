@@ -1,0 +1,12 @@
+<odoo>
+    <record id="ir_cron_sch_mock_sync" model="ir.cron">
+        <field name="name">Mock source sync and refill planning</field>
+        <field name="model_id" ref="model_sch_integration_run"/>
+        <field name="state">code</field>
+        <field name="code">model.run_mock_sync()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field name="numbercall">-1</field>
+        <field name="active">True</field>
+    </record>
+</odoo>

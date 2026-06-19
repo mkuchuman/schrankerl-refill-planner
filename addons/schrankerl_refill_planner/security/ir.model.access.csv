@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sch_fridge_user,sch.fridge user,model_sch_fridge,base.group_user,1,1,1,1
+access_sch_sale_event_user,sch.sale.event user,model_sch_sale_event,base.group_user,1,1,1,1
+access_sch_inventory_snapshot_user,sch.inventory.snapshot user,model_sch_inventory_snapshot,base.group_user,1,1,1,1
+access_sch_integration_run_user,sch.integration.run user,model_sch_integration_run,base.group_user,1,1,1,1
+access_sch_refill_plan_user,sch.refill.plan user,model_sch_refill_plan,base.group_user,1,1,1,1
+access_sch_refill_plan_line_user,sch.refill.plan.line user,model_sch_refill_plan_line,base.group_user,1,1,1,1

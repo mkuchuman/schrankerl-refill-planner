@@ -1,0 +1,8 @@
+.agents/
+.codex/
+.git/
+.local/
+.venv/
+__pycache__/
+*.egg-info/
+*.py[cod]
